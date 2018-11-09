@@ -15,4 +15,5 @@
         <rosparam command="load" file="$(arg object_config)" />
         <!-- <param name="config_file"  type="string"  value="$(arg config_file)" /> -->
   </node>
+
 </launch>

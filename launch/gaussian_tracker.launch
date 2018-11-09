@@ -15,4 +15,6 @@
         <rosparam command="load" file="$(arg object_config)" />
         <!-- <param name="config_file"  type="string"  value="$(arg config_file)" /> -->
   </node>
+  <node name="rviz" pkg="rviz" type="rivz" args="-d /home/bigjun/ros_ws/src/projects/bayes_tracking/particle_tracker.rviz">
+  </node>
 </launch>

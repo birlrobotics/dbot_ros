@@ -2,6 +2,7 @@
 object:
   package:    object_meshes
   directory:  object_models
-  meshes:     [ impact_battery.obj ]
+  meshes:     [ bottle_orange.obj,cube_5.5cm.obj,rectangular_blue.obj,rectangular_ink.obj ]
+  #meshes:     [ mugbox.obj ]
 
 
