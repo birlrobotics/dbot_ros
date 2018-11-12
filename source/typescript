@@ -1,0 +1,358 @@
+Script started on Sat 10 Nov 2018 09:10:21 AM CST
+]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_ros/sourcebigjun@bigjun:$ ls[K[Kcd sr[Kcri[K[K[K[K[K[K[Kls
+[0m[01;34mdbot_ros[0m  typescript
+]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_ros/sourcebigjun@bigjun:$ c[Kc[Kcd ..
+]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_rosbigjun@bigjun:$ ls'
+> ^C
+]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_rosbigjun@bigjun:$ ls'[K
+[0m[01;34mcmake[0m           [01;34mconfig[0m   [01;34mlaunch[0m   package.xml  [01;34mscripts[0m
+CMakeLists.txt  [01;34mdoxygen[0m  LICENSE  README.md    [01;34msource[0m
+]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_rosbigjun@bigjun:$ cd c[Kscripts/
+]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_ros/scriptsbigjun@bigjun:$ ls
+[0m[01;32mobject_tracker_controller_service_call.py[0m  [01;32mtrack_object_service_call_example.py[0m
+]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_ros/scriptsbigjun@bigjun:$ cd [K[K[Kema[K[K[Kemacs track_object_service_call_example.py 
+]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_ros/scriptsbigjun@bigjun:$ ros[K[K[Kroslaunch openni2+[K_
+openni2_camera  openni2_launch  
+]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_ros/scriptsbigjun@bigjun:$ roslaunch openni2_
+openni2_camera  openni2_launch  
+]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_ros/scriptsbigjun@bigjun:$ roslaunch openni2_launch openni2.launch [K]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_ros/scriptsbigjun@bigjun:$ roslaunch openni2_launch openni2.launch 
+... logging to /home/bigjun/.ros/log/ff3c13e6-e48c-11e8-b6ae-bc8ccd9fbe9f/roslaunch-bigjun-7805.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/opt/ros/kinetic/share/openni2_launch/launch/openni2.launch
+[1mstarted roslaunch server http://bigjun:45879/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /camera/camera_nodelet_manager/num_worker_threads: 4
+ * /camera/depth_rectify_depth/interpolation: 0
+ * /camera/driver/auto_exposure: True
+ * /camera/driver/auto_white_balance: True
+ * /camera/driver/color_depth_synchronization: False
+ * /camera/driver/color_mode: 5
+ * /camera/driver/depth_camera_info_url: 
+ * /camera/driver/depth_frame_id: camera_depth_opti...
+ * /camera/driver/depth_mode: 5
+ * /camera/driver/depth_registration: False
+ * /camera/driver/device_id: #1
+ * /camera/driver/id_manufacturer: 1d27
+ * /camera/driver/id_product: 0601
+ * /camera/driver/ir_mode: 5
+ * /camera/driver/rgb_camera_info_url: 
+ * /camera/driver/rgb_frame_id: camera_rgb_optica...
+ * /rosdistro: kinetic
+ * /rosversion: 1.12.14
+
+NODES
+  /camera/
+    camera_nodelet_manager (nodelet/nodelet)
+    depth_metric (nodelet/nodelet)
+    depth_metric_rect (nodelet/nodelet)
+    depth_points (nodelet/nodelet)
+    depth_rectify_depth (nodelet/nodelet)
+    depth_registered_sw_metric_rect (nodelet/nodelet)
+    driver (nodelet/nodelet)
+    points_xyzrgb_sw_registered (nodelet/nodelet)
+    register_depth_rgb (nodelet/nodelet)
+    rgb_rectify_color (nodelet/nodelet)
+  /
+    camera_base_link (tf2_ros/static_transform_publisher)
+    camera_base_link1 (tf2_ros/static_transform_publisher)
+    camera_base_link2 (tf2_ros/static_transform_publisher)
+    camera_base_link3 (tf2_ros/static_transform_publisher)
+
+auto-starting new master
+[1mprocess[master]: started with pid [7830][0m
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/opt/ros/kinetic/share/openni2_launch/launch/openni2.launch http://localhost:11311
+[1msetting /run_id to ff3c13e6-e48c-11e8-b6ae-bc8ccd9fbe9f[0m
+[1mprocess[rosout-1]: started with pid [7850][0m
+started core service [/rosout]
+[1mprocess[camera/camera_nodelet_manager-2]: started with pid [7853][0m
+[1mprocess[camera/driver-3]: started with pid [7854][0m
+[1mprocess[camera/rgb_rectify_color-4]: started with pid [7855][0m
+[1mprocess[camera/depth_rectify_depth-5]: started with pid [7856][0m
+[1mprocess[camera/depth_metric_rect-6]: started with pid [7857][0m
+[1mprocess[camera/depth_metric-7]: started with pid [7858][0m
+[1mprocess[camera/depth_points-8]: started with pid [7859][0m
+[1mprocess[camera/register_depth_rgb-9]: started with pid [7860][0m
+[1mprocess[camera/points_xyzrgb_sw_registered-10]: started with pid [7861][0m
+[1mprocess[camera/depth_registered_sw_metric_rect-11]: started with pid [7862][0m
+[1mprocess[camera_base_link-12]: started with pid [7863][0m
+[1mprocess[camera_base_link1-13]: started with pid [7864][0m
+[1mprocess[camera_base_link2-14]: started with pid [7865][0m
+[1mprocess[camera_base_link3-15]: started with pid [7866][0m
+[0m[ INFO] [1541815490.338551640]: Initializing nodelet with 4 worker threads.[0m
+[0m[ INFO] [1541815491.390639244]: Device "1d27/0601@3/3" found.[0m
+Warning: USB events thread - failed to set priority. This might cause loss of data...
+[33m[ WARN] [1541815491.935150245]: Reconnect has been enabled, only one camera should be plugged into each bus[0m
+^C[camera_base_link3-15] killing on exit
+[camera_base_link2-14] killing on exit
+[camera_base_link-12] killing on exit
+[camera_base_link1-13] killing on exit
+[camera/depth_registered_sw_metric_rect-11] killing on exit
+[camera/points_xyzrgb_sw_registered-10] killing on exit
+[camera/register_depth_rgb-9] killing on exit
+[camera/depth_metric-7] killing on exit
+[camera/depth_points-8] killing on exit
+[camera/depth_metric_rect-6] killing on exit
+[camera/depth_rectify_depth-5] killing on exit
+[camera/rgb_rectify_color-4] killing on exit
+[camera/driver-3] killing on exit
+[camera/camera_nodelet_manager-2] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m
+]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_ros/scriptsbigjun@bigjun:$ roslaunch openni2_launch oppenni2.launch 
+... logging to /home/bigjun/.ros/log/74680cd6-e494-11e8-b6ae-bc8ccd9fbe9f/roslaunch-bigjun-14924.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/opt/ros/kinetic/share/openni2_launch/launch/openni2.launch
+[1mstarted roslaunch server http://bigjun:34697/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /camera/camera_nodelet_manager/num_worker_threads: 4
+ * /camera/depth_rectify_depth/interpolation: 0
+ * /camera/driver/auto_exposure: True
+ * /camera/driver/auto_white_balance: True
+ * /camera/driver/color_depth_synchronization: False
+ * /camera/driver/color_mode: 5
+ * /camera/driver/depth_camera_info_url: 
+ * /camera/driver/depth_frame_id: camera_depth_opti...
+ * /camera/driver/depth_mode: 5
+ * /camera/driver/depth_registration: False
+ * /camera/driver/device_id: #1
+ * /camera/driver/id_manufacturer: 1d27
+ * /camera/driver/id_product: 0601
+ * /camera/driver/ir_mode: 5
+ * /camera/driver/rgb_camera_info_url: 
+ * /camera/driver/rgb_frame_id: camera_rgb_optica...
+ * /rosdistro: kinetic
+ * /rosversion: 1.12.14
+
+NODES
+  /camera/
+    camera_nodelet_manager (nodelet/nodelet)
+    depth_metric (nodelet/nodelet)
+    depth_metric_rect (nodelet/nodelet)
+    depth_points (nodelet/nodelet)
+    depth_rectify_depth (nodelet/nodelet)
+    depth_registered_sw_metric_rect (nodelet/nodelet)
+    driver (nodelet/nodelet)
+    points_xyzrgb_sw_registered (nodelet/nodelet)
+    register_depth_rgb (nodelet/nodelet)
+    rgb_rectify_color (nodelet/nodelet)
+  /
+    camera_base_link (tf2_ros/static_transform_publisher)
+    camera_base_link1 (tf2_ros/static_transform_publisher)
+    camera_base_link2 (tf2_ros/static_transform_publisher)
+    camera_base_link3 (tf2_ros/static_transform_publisher)
+
+auto-starting new master
+[1mprocess[master]: started with pid [14957][0m
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/opt/ros/kinetic/share/openni2_launch/launch/openni2.launch http://localhost:11311
+[1msetting /run_id to 74680cd6-e494-11e8-b6ae-bc8ccd9fbe9f[0m
+[1mprocess[rosout-1]: started with pid [14977][0m
+started core service [/rosout]
+[1mprocess[camera/camera_nodelet_manager-2]: started with pid [14994][0m
+[1mprocess[camera/driver-3]: started with pid [14995][0m
+[1mprocess[camera/rgb_rectify_color-4]: started with pid [14996][0m
+[1mprocess[camera/depth_rectify_depth-5]: started with pid [15004][0m
+[1mprocess[camera/depth_metric_rect-6]: started with pid [15018][0m
+[1mprocess[camera/depth_metric-7]: started with pid [15030][0m
+[1mprocess[camera/depth_points-8]: started with pid [15039][0m
+[1mprocess[camera/register_depth_rgb-9]: started with pid [15048][0m
+[1mprocess[camera/points_xyzrgb_sw_registered-10]: started with pid [15064][0m
+[1mprocess[camera/depth_registered_sw_metric_rect-11]: started with pid [15067][0m
+[1mprocess[camera_base_link-12]: started with pid [15074][0m
+[1mprocess[camera_base_link1-13]: started with pid [15081][0m
+[1mprocess[camera_base_link2-14]: started with pid [15101][0m
+[1mprocess[camera_base_link3-15]: started with pid [15119][0m
+[0m[ INFO] [1541818691.905807748]: Initializing nodelet with 4 worker threads.[0m
+[0m[ INFO] [1541818692.216816203]: Device "1d27/0601@3/3" found.[0m
+Warning: USB events thread - failed to set priority. This might cause loss of data...
+[33m[ WARN] [1541818692.833308158]: Reconnect has been enabled, only one camera should be plugged into each bus[0m
+[0m[ INFO] [1541818719.153823723]: Starting depth stream.[0m
+[0m[ INFO] [1541818719.561167028]: using default calibration URL[0m
+[0m[ INFO] [1541818719.561396991]: camera calibration URL: file:///home/bigjun/.ros/camera_info/depth_PS1080_PrimeSense.yaml[0m
+[0m[ INFO] [1541818719.561655562]: Unable to open camera calibration file [/home/bigjun/.ros/camera_info/depth_PS1080_PrimeSense.yaml][0m
+[33m[ WARN] [1541818719.561789122]: Camera calibration file /home/bigjun/.ros/camera_info/depth_PS1080_PrimeSense.yaml not found.[0m
+[0m[ INFO] [1541818719.594213876]: Stopping depth stream.[0m
+[0m[ INFO] [1541818720.596324930]: Starting depth stream.[0m
+[0m[ INFO] [1541818758.303503231]: Starting color stream.[0m
+[0m[ INFO] [1541818758.444984157]: using default calibration URL[0m
+[0m[ INFO] [1541818758.445095780]: camera calibration URL: file:///home/bigjun/.ros/camera_info/rgb_PS1080_PrimeSense.yaml[0m
+[0m[ INFO] [1541818758.445163566]: Unable to open camera calibration file [/home/bigjun/.ros/camera_info/rgb_PS1080_PrimeSense.yaml][0m
+[33m[ WARN] [1541818758.445211428]: Camera calibration file /home/bigjun/.ros/camera_info/rgb_PS1080_PrimeSense.yaml not found.[0m
+[0m[ INFO] [1541818863.086314484]: Stopping color stream.[0m
+[0m[ INFO] [1541818866.878222471]: Stopping depth stream.[0m
+[0m[ INFO] [1541821323.942355763]: Starting color stream.[0m
+[0m[ INFO] [1541821324.047417573]: Starting depth stream.[0m
+[0m[ INFO] [1541821342.720163326]: Stopping color stream.[0m
+[0m[ INFO] [1541821343.725217342]: Stopping depth stream.[0m
+[0m[ INFO] [1541821426.150517019]: Starting color stream.[0m
+[0m[ INFO] [1541821426.252717704]: Starting depth stream.[0m
+[0m[ INFO] [1541821428.182047788]: Stopping color stream.[0m
+[0m[ INFO] [1541821429.183143544]: Stopping depth stream.[0m
+[0m[ INFO] [1541826625.489231316]: Starting depth stream.[0m
+[0m[ INFO] [1541826625.919263104]: Stopping depth stream.[0m
+[0m[ INFO] [1541826626.921226434]: Starting depth stream.[0m
+[0m[ INFO] [1541826656.860022428]: Starting color stream.[0m
+[0m[ INFO] [1541826691.704053873]: Stopping color stream.[0m
+[0m[ INFO] [1541826693.720732372]: Stopping depth stream.[0m
+[0m[ INFO] [1541826836.854249469]: Starting depth stream.[0m
+[0m[ INFO] [1541826837.285252130]: Stopping depth stream.[0m
+[0m[ INFO] [1541826838.287287735]: Starting depth stream.[0m
+[0m[ INFO] [1541826843.570906387]: Starting color stream.[0m
+[0m[ INFO] [1541826894.161861443]: Stopping color stream.[0m
+[0m[ INFO] [1541826929.779566132]: Stopping depth stream.[0m
+[0m[ INFO] [1541826930.779002375]: Starting depth stream.[0m
+[0m[ INFO] [1541826931.205928063]: Stopping depth stream.[0m
+[0m[ INFO] [1541826932.207952432]: Starting depth stream.[0m
+[0m[ INFO] [1541826958.450786548]: Starting color stream.[0m
+[0m[ INFO] [1541827006.889584056]: Stopping color stream.[0m
+[0m[ INFO] [1541827021.390500519]: Starting color stream.[0m
+[0m[ INFO] [1541827084.961249548]: Stopping color stream.[0m
+[0m[ INFO] [1541827085.965702865]: Stopping depth stream.[0m
+[0m[ INFO] [1541827130.808585767]: Starting depth stream.[0m
+[0m[ INFO] [1541827131.236866099]: Stopping depth stream.[0m
+[0m[ INFO] [1541827132.238636716]: Starting depth stream.[0m
+[0m[ INFO] [1541827137.020433842]: Starting color stream.[0m
+[0m[ INFO] [1541827235.095399215]: Stopping color stream.[0m
+[0m[ INFO] [1541827237.880137028]: Stopping depth stream.[0m
+[0m[ INFO] [1541828233.689884013]: Starting depth stream.[0m
+[0m[ INFO] [1541828234.119481954]: Stopping depth stream.[0m
+[0m[ INFO] [1541828235.121557537]: Starting depth stream.[0m
+[0m[ INFO] [1541828236.600181597]: Starting color stream.[0m
+[0m[ INFO] [1541828273.739122597]: Stopping color stream.[0m
+[0m[ INFO] [1541828277.261931415]: Stopping depth stream.[0m
+[31m[ERROR] [1541832609.676975557]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.676975891]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.677252156]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.677310559]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.677396982]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.677801237]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.678331997]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.678706883]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.678953804]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.679213297]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.679747828]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.676309521]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.680264019]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.680549030]: poll failed with error Interrupted system call[0m
+[31m[ERROR] [1541832609.680941846]: poll failed with error Interrupted system call[0m
+^C[camera_base_link3-15] killing on exit
+[camera_base_link2-14] killing on exit
+[camera_base_link1-13] killing on exit
+[camera_base_link-12] killing on exit
+[camera/depth_registered_sw_metric_rect-11] killing on exit
+[camera/points_xyzrgb_sw_registered-10] killing on exit
+[camera/register_depth_rgb-9] killing on exit
+[camera/depth_points-8] killing on exit
+[camera/depth_metric_rect-6] killing on exit
+[camera/depth_metric-7] killing on exit
+[camera/depth_rectify_depth-5] killing on exit
+[camera/rgb_rectify_color-4] killing on exit
+[camera/driver-3] killing on exit
+[camera/camera_nodelet_manager-2] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m
+]0;bigjun@bigjun: ~/ros_ws/src/projects/bayes_tracking/dbot_ros/scriptsbigjun@bigjun:$ roslaunch openni2_launch openni2.launchh 
+... logging to /home/bigjun/.ros/log/618d708a-e4b5-11e8-b6ae-bc8ccd9fbe9f/roslaunch-bigjun-9662.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/opt/ros/kinetic/share/openni2_launch/launch/openni2.launch
+[1mstarted roslaunch server http://bigjun:32995/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /camera/camera_nodelet_manager/num_worker_threads: 4
+ * /camera/depth_rectify_depth/interpolation: 0
+ * /camera/driver/auto_exposure: True
+ * /camera/driver/auto_white_balance: True
+ * /camera/driver/color_depth_synchronization: False
+ * /camera/driver/color_mode: 5
+ * /camera/driver/depth_camera_info_url: 
+ * /camera/driver/depth_frame_id: camera_depth_opti...
+ * /camera/driver/depth_mode: 5
+ * /camera/driver/depth_registration: False
+ * /camera/driver/device_id: #1
+ * /camera/driver/id_manufacturer: 1d27
+ * /camera/driver/id_product: 0601
+ * /camera/driver/ir_mode: 5
+ * /camera/driver/rgb_camera_info_url: 
+ * /camera/driver/rgb_frame_id: camera_rgb_optica...
+ * /rosdistro: kinetic
+ * /rosversion: 1.12.14
+
+NODES
+  /camera/
+    camera_nodelet_manager (nodelet/nodelet)
+    depth_metric (nodelet/nodelet)
+    depth_metric_rect (nodelet/nodelet)
+    depth_points (nodelet/nodelet)
+    depth_rectify_depth (nodelet/nodelet)
+    depth_registered_sw_metric_rect (nodelet/nodelet)
+    driver (nodelet/nodelet)
+    points_xyzrgb_sw_registered (nodelet/nodelet)
+    register_depth_rgb (nodelet/nodelet)
+    rgb_rectify_color (nodelet/nodelet)
+  /
+    camera_base_link (tf2_ros/static_transform_publisher)
+    camera_base_link1 (tf2_ros/static_transform_publisher)
+    camera_base_link2 (tf2_ros/static_transform_publisher)
+    camera_base_link3 (tf2_ros/static_transform_publisher)
+
+auto-starting new master
+[1mprocess[master]: started with pid [9695][0m
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/opt/ros/kinetic/share/openni2_launch/launch/openni2.launch http://localhost:11311
+[1msetting /run_id to 618d708a-e4b5-11e8-b6ae-bc8ccd9fbe9f[0m
+[1mprocess[rosout-1]: started with pid [9725][0m
+started core service [/rosout]
+[1mprocess[camera/camera_nodelet_manager-2]: started with pid [9737][0m
+[1mprocess[camera/driver-3]: started with pid [9743][0m
+[1mprocess[camera/rgb_rectify_color-4]: started with pid [9744][0m
+[1mprocess[camera/depth_rectify_depth-5]: started with pid [9745][0m
+[1mprocess[camera/depth_metric_rect-6]: started with pid [9746][0m
+[1mprocess[camera/depth_metric-7]: started with pid [9753][0m
+[1mprocess[camera/depth_points-8]: started with pid [9769][0m
+[1mprocess[camera/register_depth_rgb-9]: started with pid [9775][0m
+[1mprocess[camera/points_xyzrgb_sw_registered-10]: started with pid [9791][0m
+[1mprocess[camera/depth_registered_sw_metric_rect-11]: started with pid [9795][0m
+[1mprocess[camera_base_link-12]: started with pid [9799][0m
+[1mprocess[camera_base_link1-13]: started with pid [9811][0m
+[1mprocess[camera_base_link2-14]: started with pid [9814][0m
+[1mprocess[camera_base_link3-15]: started with pid [9826][0m
+[0m[ INFO] [1541832834.921242961]: Initializing nodelet with 4 worker threads.[0m
+[0m[ INFO] [1541832835.070892312]: Device "1d27/0601@3/3" found.[0m
+Warning: USB events thread - failed to set priority. This might cause loss of data...
+[33m[ WARN] [1541832835.760662804]: Reconnect has been enabled, only one camera should be plugged into each bus[0m
+[0m[ INFO] [1541832864.803207897]: Starting depth stream.[0m
+[0m[ INFO] [1541832865.209610239]: using default calibration URL[0m
+[0m[ INFO] [1541832865.209826257]: camera calibration URL: file:///home/bigjun/.ros/camera_info/depth_PS1080_PrimeSense.yaml[0m
+[0m[ INFO] [1541832865.210115288]: Unable to open camera calibration file [/home/bigjun/.ros/camera_info/depth_PS1080_PrimeSense.yaml][0m
+[33m[ WARN] [1541832865.210256573]: Camera calibration file /home/bigjun/.ros/camera_info/depth_PS1080_PrimeSense.yaml not found.[0m
+[0m[ INFO] [1541832865.242792519]: Stopping depth stream.[0m
+[0m[ INFO] [1541832866.244665329]: Starting depth stream.[0m
+[0m[ INFO] [1541832870.821576533]: Starting color stream.[0m
+[0m[ INFO] [1541832870.962414570]: using default calibration URL[0m
+[0m[ INFO] [1541832870.962542315]: camera calibration URL: file:///home/bigjun/.ros/camera_info/rgb_PS1080_PrimeSense.yaml[0m
+[0m[ INFO] [1541832870.962627717]: Unable to open camera calibration file [/home/bigjun/.ros/camera_info/rgb_PS1080_PrimeSense.yaml][0m
+[33m[ WARN] [1541832870.96267

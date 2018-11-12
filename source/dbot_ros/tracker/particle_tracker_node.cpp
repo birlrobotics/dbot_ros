@@ -247,7 +247,7 @@ int main(int argc, char** argv)
     {
         initial_poses[0].component(i++) = ri::to_pose_velocity_vector(ros_pose);
     }
-
+ 
 
     tracker->initialize(initial_poses);
 
@@ -281,7 +281,7 @@ int main(int argc, char** argv)
             tracker_publisher.publish(
                 ros_object_tracker.current_state_messages());
         }
-    }
+    }  
 
     return 0;
 }

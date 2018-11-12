@@ -35,13 +35,19 @@
 #include <ros/package.h>
 #include <ros/ros.h>
 #include <thread>
+#include <geometry_msgs/Pose.h>
+#include <geometry_msgs/Point.h>
+#include <geometry_msgs/Quaternion.h>
 
 #include <dbot_ros_msgs/RunObjectTracker.h>
+#include <dbot_ros_msgs/RunObjectTracker1.h>
 
 static bool running = false;
 static std::thread tracker_thread;
 
-void run(dbot::ObjectResourceIdentifier ori, dbot::PoseVelocityVector pose)
+// void run(dbot::ObjectResourceIdentifier ori, dbot::PoseVelocityVector pose ,dbot::PoseVelocityVector pose2)
+// {
+void run(dbot::ObjectResourceIdentifier ori, dbot::PoseVelocityVector pose )
 {
     ros::NodeHandle nh("~");
 
@@ -125,8 +131,8 @@ void run(dbot::ObjectResourceIdentifier ori, dbot::PoseVelocityVector pose)
                 params_state.angular_sigma_z);
     nh.getParam(pre + "object_transition/velocity_factor",
                 params_state.velocity_factor);
-    params_state.part_count = 1;
-
+    params_state.part_count = ori.count_meshes();
+    //ROS_INFO("%d", ori.count_meshes());
     auto state_trans_builder = std::shared_ptr<TransitionBuilder>(
         new dbot::ObjectTransitionBuilder<State>(params_state));
 
@@ -191,8 +197,27 @@ void run(dbot::ObjectResourceIdentifier ori, dbot::PoseVelocityVector pose)
 
     dbot::ObjectTrackerRos<Tracker> ros_object_tracker(
         tracker, camera_data, ori.count_meshes());
+    
+    geometry_msgs::Pose pose2_;
+    pose2_.position.x = 1.0;
+    pose2_.position.y = 0;
+    pose2_.position.z = 0;
+    pose2_.orientation.x = 0;
+    pose2_.orientation.y = 0;
+    pose2_.orientation.z = 0;
+    pose2_.orientation.w = 0;
+    dbot::PoseVelocityVector pose2 = ri::to_pose_velocity_vector(pose2_);
 
-    ros_object_tracker.tracker()->initialize({pose});
+    //ros_object_tracker.tracker()->initialize({pose,pose2});
+    //tracker->initialize({pose,pose});
+
+    std::vector<Tracker::State> initial_poses;
+    initial_poses.push_back(Tracker::State(ori.count_meshes()));
+    int i = 0;
+    initial_poses[0].component(0) = pose;
+    initial_poses[0].component(1) = pose2;
+ 
+    tracker->initialize(initial_poses);
 
     /* ------------------------------ */
     /* - Tracker publisher          - */
@@ -227,8 +252,8 @@ void run(dbot::ObjectResourceIdentifier ori, dbot::PoseVelocityVector pose)
     ROS_INFO("Tracking terminated.");
 }
 
-bool run_object_tracker_srv(dbot_ros_msgs::RunObjectTrackerRequest& req,
-                            dbot_ros_msgs::RunObjectTrackerResponse& res)
+bool run_object_tracker_srv(dbot_ros_msgs::RunObjectTracker1Request& req,
+                            dbot_ros_msgs::RunObjectTracker1Response& res)
 {
     if (running)
     {
@@ -247,8 +272,9 @@ bool run_object_tracker_srv(dbot_ros_msgs::RunObjectTrackerRequest& req,
                     ros::package::getPath(req.object_state.ori.package),
                     req.object_state.ori.directory,
                     {req.object_state.ori.name}),
-                ri::to_pose_velocity_vector(req.object_state.pose.pose));
-        }
+                ri::to_pose_velocity_vector(req.object_state.pose.pose)
+                );
+        }//,ri::to_pose_velocity_vector(req.object_state.pose2.pose)
         catch (std::exception& e)
         {
             ROS_ERROR("%s", e.what());
