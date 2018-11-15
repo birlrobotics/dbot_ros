@@ -215,7 +215,7 @@ void run(dbot::ObjectResourceIdentifier ori, dbot::PoseVelocityVector pose )
     initial_poses.push_back(Tracker::State(ori.count_meshes()));
     int i = 0;
     initial_poses[0].component(0) = pose;
-    initial_poses[0].component(1) = pose2;
+   // initial_poses[0].component(1) = pose2;
  
     tracker->initialize(initial_poses);
 
