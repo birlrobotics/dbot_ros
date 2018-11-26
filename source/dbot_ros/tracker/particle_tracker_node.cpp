@@ -40,21 +40,75 @@
 #include <geometry_msgs/Pose.h>
 #include <ar_track_alvar_msgs/AlvarMarkers.h>
 //#include <ar_track_alvar_msgs/AlvarMarker.h>
+#include <tf/transform_listener.h>
 
 
 std::vector<std::string> object_meshes;
 std::vector<geometry_msgs::Pose> object_poses;
+int callback_run_count = 0;
+
+//tf::StampedTransform to geometry_msg::Pose 
+geometry_msgs::Pose get_pose_from_transform(tf::StampedTransform tf) {
+  //clumsy conversions--points, vectors and quaternions are different data types in tf vs geometry_msgs
+  geometry_msgs::Pose stPose;
+  geometry_msgs::Quaternion quat;  //geometry_msgs object for quaternion
+  tf::Quaternion tfQuat; // tf library object for quaternion
+  tfQuat = tf.getRotation(); // member fnc to extract the quaternion from a transform
+  quat.x = tfQuat.x(); // copy the data from tf-style quaternion to geometry_msgs-style quaternion
+  quat.y = tfQuat.y();
+  quat.z = tfQuat.z();
+  quat.w = tfQuat.w();  
+  stPose.orientation = quat; //set the orientation of our PoseStamped object from result
+  
+  // now do the same for the origin--equivalently, vector from parent to child frame 
+  tf::Vector3 tfVec;  //tf-library type
+  geometry_msgs::Point pt; //equivalent geometry_msgs type
+  tfVec = tf.getOrigin(); // extract the vector from parent to child from transform
+  pt.x = tfVec.getX(); //copy the components into geometry_msgs type
+  pt.y = tfVec.getY();
+  pt.z = tfVec.getZ();  
+  stPose.position= pt; //and use this compatible type to set the position of the PoseStamped
+  return stPose;
+}
+
+geometry_msgs::Pose get_pose(int id){
+  bool listen_status = false; 
+  tf::TransformListener listener;
+  tf::StampedTransform transform;
+  while (!listen_status){
+    try{
+      listener.lookupTransform("/base", "/ar_marker_" + std::to_string(id),
+                               ros::Time(0), transform);
+    }
+    catch (tf::TransformException &ex) {
+      ROS_ERROR("%s",ex.what());
+      ros::Duration(1.0).sleep();
+      continue;
+    }
+    listen_status = true;
+  }
+  return get_pose_from_transform(transform);
+}
 
 void callback(const ar_track_alvar_msgs::AlvarMarkers &object_msg){
     int object_count = object_msg.markers.size();
     ROS_INFO("object_count= %d ",object_count);
     for(int i = 0; i < object_count; i++){
-        if(object_msg.markers[i].id == 0)   object_meshes.push_back("cube_5.5cm.obj");
-        else   object_meshes.push_back("rectangular.obj");
+        // if(object_msg.markers[i].id == 0)   object_meshes.push_back("cube_5.5cm.obj");
+        // else   object_meshes.push_back("rectangular.obj");
         //object_meshes.push_back(object_msg.markers[i].id);
-        object_poses.push_back(object_msg.markers[i].pose.pose);
+        switch (object_msg.markers[i].id)
+        {
+            case 0:
+                object_meshes.push_back("cube_5.5cm.obj");
+                break;
+            default:
+                object_meshes.push_back("rectangular.obj");
+        }
+        object_poses.push_back(get_pose(object_msg.markers[i].id));
         std::cout << object_meshes[i] << std::endl << object_poses[i] ;
     }
+    callback_run_count++;
 }
 
 int main(int argc, char** argv)
@@ -86,7 +140,7 @@ int main(int argc, char** argv)
     // parameter shorthand prefix
     // int i=0;
     ros::Subscriber sub = n.subscribe("ar_pose_marker", 1, callback);
-    while(object_meshes.size() == 0){
+    while(object_meshes.size() == 0 && callback_run_count == 0){
         ros::spinOnce();
         // i++;
         // ROS_INFO("test %d",i);
