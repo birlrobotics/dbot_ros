@@ -46,12 +46,23 @@ std::vector<std::string> object_meshes;
 std::vector<geometry_msgs::Pose> object_poses;
 
 void callback(const ar_track_alvar_msgs::AlvarMarkers &object_msg){
+    object_meshes.clear();
+    object_poses.clear();
     int object_count = object_msg.markers.size();
     ROS_INFO("object_count= %d ",object_count);
     for(int i = 0; i < object_count; i++){
-        if(object_msg.markers[i].id == 0)   object_meshes.push_back("cube_5.5cm.obj");
-        else   object_meshes.push_back("rectangular.obj");
-        //object_meshes.push_back(object_msg.markers[i].id);
+        // if(object_msg.markers[i].id == 5)   object_meshes.push_back("rectangular.obj");
+        // else   object_meshes.push_back("rectangular_pen.obj");
+        // object_meshes.push_back(object_msg.markers[i].id);
+        switch (object_msg.markers[i].id)
+        {
+            case 5:
+                object_meshes.push_back("rectangular.obj");
+                break;
+            default:
+                object_meshes.push_back("rectangular_pen.obj");
+        }
+        
         object_poses.push_back(object_msg.markers[i].pose.pose);
         std::cout << object_meshes[i] << std::endl << object_poses[i] ;
     }
@@ -85,13 +96,16 @@ int main(int argc, char** argv)
 
     // parameter shorthand prefix
     // int i=0;
+    
     ros::Subscriber sub = n.subscribe("ar_pose_marker", 1, callback);
     while(object_meshes.size() == 0){
+        ros::Duration(5).sleep();
         ros::spinOnce();
         // i++;
         // ROS_INFO("test %d",i);
     }  
     std::string pre = "particle_filter/";
+    std::cout << pre;
 
 
     /* ------------------------------ */

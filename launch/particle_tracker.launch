@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="filter_config" default="$(find dbot_ros)/config/particle_tracker.yaml"/>
   <arg name="camera_config" default="$(find dbot_ros)/config/camera.yaml"/>
@@ -13,7 +14,7 @@
         <rosparam command="load" file="$(arg filter_config)" />
         <rosparam command="load" file="$(arg camera_config)" />
         <rosparam command="load" file="$(arg object_config)" />
-        <!-- <param name="config_file"  type="string"  value="$(arg config_file)" /> -->
+        <!-- <param name="config_file"  type="string"  value="$(arg config_file)" /> gdb -ex run –args-->
   </node>
 
 </launch>

@@ -2,6 +2,7 @@
 # /camera/depth_registered/image. Therefore, we use /camera/depth
 depth_image_topic: /camera/depth/image
 camera_info_topic: /camera/depth/camera_info 
+
 downsampling_factor: 8
 
 resolution:
