@@ -2,7 +2,7 @@
 object:
   package:    object_meshes
   directory:  object_models
-  #meshes:     [ bottle_orange.obj,cube_5.5cm.obj,rectangular_blue.obj,rectangular_ink.obj ]
   meshes:     [ rectangular_pen.obj ]
+  #meshes:     [ mugbox.obj ]
 
 
