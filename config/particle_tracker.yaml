@@ -27,7 +27,7 @@ particle_filter:
   # this affects the center of rotation of the object.
   # false: rotate around origin of the mesh model
   # true: rotate around the mean of the vertices of the mesh model
-  center_object_frame: true 
+  center_object_frame: false
 
   # particles will only be resampled if their weights are very concentrated.
   # this parameter is a measure of this concentration. 
@@ -52,12 +52,12 @@ particle_filter:
   # where Gaussian noise is injected into the velocities
   object_transition:
     # the parameters below define the noise magnitue (standard deviation)
-    linear_sigma_x: 0.0025
-    linear_sigma_y: 0.0025
-    linear_sigma_z: 0.0025
-    angular_sigma_x: 0.02
-    angular_sigma_y: 0.02
-    angular_sigma_z: 0.02
+    linear_sigma_x: 0.003
+    linear_sigma_y: 0.003
+    linear_sigma_z: 0.003  
+    angular_sigma_x: 0.03
+    angular_sigma_y: 0.03
+    angular_sigma_z: 0.03
     # this parameter specifies how fast the velocity tends to zero, 
     # 0.0: velocity is set to 0 at each time step, 1.0: velocity remains constant
     velocity_factor: 0.8

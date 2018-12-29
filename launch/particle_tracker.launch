@@ -4,17 +4,23 @@
   <arg name="camera_config" default="$(find dbot_ros)/config/camera.yaml"/>
   <arg name="object_config" default="$(find dbot_ros)/config/object.yaml"/>
 
+  <arg name="debug" default="false"/>
+    <!-- 3. launch-prefix runs gdb in xterm without running it automatically -->
+  <arg     if="$(arg debug)" name="gdb_arg" value="xterm -e gdb --args" />
+  <arg unless="$(arg debug)" name="gdb_arg" value="" />
+
   <node 
     name="particle_tracker" 
     type="particle_tracker"
     pkg="dbot_ros" 
     output="screen" 
     respawn="false"
-    launch-prefix="">
+    launch-prefix="$(arg gdb_arg)">
         <rosparam command="load" file="$(arg filter_config)" />
         <rosparam command="load" file="$(arg camera_config)" />
         <rosparam command="load" file="$(arg object_config)" />
         <!-- <param name="config_file"  type="string"  value="$(arg config_file)" /> gdb -ex run –args-->
   </node>
-
+  <node name="rviz" pkg="rviz" type="rviz" args="-d /home/birl/ros/baxter_ws/src/bigjun/bayes_tracking/particle_tracker.rviz">
+  </node>
 </launch>

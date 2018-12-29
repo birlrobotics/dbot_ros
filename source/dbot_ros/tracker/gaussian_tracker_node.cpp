@@ -146,7 +146,7 @@ int main(int argc, char** argv)
         params.ori.directory(),
         params.ori.meshes(),
         {},
-        false); // load cache from file
+        true); // load cache from file
     if (!object_initializer.wait_for_object_poses())
     {
         ROS_INFO("Setting object poses was interrupted.");

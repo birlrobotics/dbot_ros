@@ -43,6 +43,7 @@ ObjectStatePublisher::ObjectStatePublisher(
 {
     object_marker_publisher_ =
         node_handle_.advertise<visualization_msgs::Marker>("object_model", 0);
+        
     object_state_publisher_ =
         node_handle_.advertise<dbot_ros_msgs::ObjectState>("object_state", 0);
 }

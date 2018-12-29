@@ -1,5 +1,0 @@
-<launch>
-	<include file = "$(find dbot_ros)/launch/particle_tracker.launch" />
-	<include file = "$(find openni2_launch)/launch/openni2.launch" />
-	<include file = "$(find ar_track_alvar)/launch/ar_track_demo.launch" />
-</launch>

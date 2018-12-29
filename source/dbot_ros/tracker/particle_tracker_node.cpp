@@ -94,18 +94,17 @@ int main(int argc, char** argv)
     /*    - Filter builder                                                    */
     /* ---------------------------------------------------------------------- */
 
-    // parameter shorthand prefix
-    // int i=0;
-    
+
+    /*listen to the topice published by ar_tracker
+      to get the original pose of objects of interest*/
     ros::Subscriber sub = n.subscribe("ar_pose_marker", 1, callback);
     while(object_meshes.size() == 0){
         ros::Duration(5).sleep();
         ros::spinOnce();
-        // i++;
-        // ROS_INFO("test %d",i);
-    }  
+    } 
+
+    // parameter shorthand prefix 
     std::string pre = "particle_filter/";
-    std::cout << pre;
 
 
     /* ------------------------------ */

@@ -18,7 +18,7 @@ gaussian_filter:
     angular_sigma_x: 0.01
     angular_sigma_y: 0.01
     angular_sigma_z: 0.01
-    velocity_factor: 0.8
+    velocity_factor: 0.1
 
   observation:
     fg_noise_std: 0.001 #0.001
@@ -32,9 +32,9 @@ gaussian_filter:
     bg_noise_std: 100.0
 
   object_color:
-   R: 97
-   G: 117
-   B: 123
+   R: 10
+   G: 200
+   B: 50
 
 # object colors
 gt_color_r: 97
